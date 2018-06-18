@@ -1,0 +1,82 @@
+﻿<Window x:Class="Whist.ScoreAndInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Score and Info" Height="473" Width="576"
+        WindowStartupLocation="Manual"
+        Top="10"
+        Left="10"
+        ResizeMode="CanMinimize"
+        Icon="Media/cards.ico">
+
+    <Grid Background="#13000000">
+        <TextBlock Height="71" HorizontalAlignment="Left" Name="textBlock1" VerticalAlignment="Top" Width="540" Margin="6,354,0,0" > 
+           <Bold> FAQ </Bold> <LineBreak/> To save the results click File menu on the top and "Save results to file".
+            Remeber to clear your results <LineBreak/> before running program on new parameters. You can do that by pressing "Clear results" above the<LineBreak/> "Play game!"
+        </TextBlock>
+        <Button Content="Clear results" Height="23" HorizontalAlignment="Left" Name="resultButton" VerticalAlignment="Top" Width="91" Click="resultButton_Click" Margin="460,275,0,0" />
+        <GroupBox Header="Player 4 controller" Height="183" HorizontalAlignment="Left" Margin="107,165,0,0" Name="groupP4Controller" VerticalAlignment="Top" Width="117" BorderBrush="#AE000000">
+            <Grid>
+                <RadioButton Content="Human" GroupName="Player4Controller" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioAIChecked" VerticalAlignment="Top" Checked="radioAIChecked_Checked" />
+                <RadioButton Content="Random" GroupName="Player4Controller" Height="16" HorizontalAlignment="Left" Margin="6,61,0,0" Name="radioPlayer4Random" VerticalAlignment="Top" Checked="radioPlayer4Random_Checked" />
+                <RadioButton Content="Greedy" GroupName="Player4Controller" Height="16" HorizontalAlignment="Left" Margin="6,79,0,0" Name="radioPlayer4Greedy" VerticalAlignment="Top" Checked="radioPlayer4Greedy_Checked" />
+                <RadioButton Content="Heuristic" GroupName="Player4Controller" Height="16" HorizontalAlignment="Left" Margin="6,97,0,0" Name="radioPlayer4Heuristic" VerticalAlignment="Top" Checked="radioPlayer4Heuristic_Checked" />
+                <Separator Height="5" HorizontalAlignment="Left" Margin="0,25,0,0" Name="separator1" VerticalAlignment="Top" Width="105" Background="#76000000" />
+                <TextBlock Height="26" HorizontalAlignment="Left" Margin="6,35,0,0" Name="textBlock2" VerticalAlignment="Top" Width="93">Controlled by AI</TextBlock>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Scores" Height="151" HorizontalAlignment="Left" Margin="0,18,0,0" Name="groupScores" VerticalAlignment="Top" Width="551" BorderBrush="#AE000000">
+            <Grid>
+                <ListBox Height="128" HorizontalAlignment="Left" Name="resultBox" VerticalAlignment="Top" Width="539" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Player 1 AI" Height="100" HorizontalAlignment="Left" Margin="230,165,0,0" Name="groupPlayer1" VerticalAlignment="Top" Width="103" BorderBrush="#AE000000">
+            <Grid>
+                <RadioButton Content="Random" GroupName="Player1AI" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioPlayer1Random" Height="16" VerticalAlignment="Top" Checked="radioPlayer1Random_Checked" />
+                <RadioButton Content="Greedy" GroupName="Player1AI" Height="16" HorizontalAlignment="Left" Margin="6,25,0,0" Name="radioPlayer1Greedy" VerticalAlignment="Top" Checked="radioPlayer1Greedy_Checked" />
+                <RadioButton Content="Heuristic" GroupName="Player1AI" Height="16" HorizontalAlignment="Left" Margin="6,44,0,0" Name="radioPlayer1Heuristic" VerticalAlignment="Top" Checked="radioPlayer1Heuristic_Checked" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Automatic play" Height="183" HorizontalAlignment="Left" Margin="0,165,0,0" Name="groupAutoPlay" VerticalAlignment="Top" Width="101" BorderBrush="#AE000000">
+            <Grid>
+                <RadioButton Content="No" GroupName="AutoPlay" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioAutoNo" VerticalAlignment="Top" Checked="radioAutoNo_Checked" />
+                <RadioButton Content="Yes" GroupName="AutoPlay" Height="16" HorizontalAlignment="Left" Margin="6,25,0,0" Name="radioAutoYes" VerticalAlignment="Top" Checked="radioAutoYes_Checked" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,47,0,0" Name="textBoxRepetitions" VerticalAlignment="Top" Width="77" TextChanged="textBoxRepetitions_TextChanged" />
+                <RadioButton Content="Yes, repeat" GroupName="AutoPlay" Height="43" HorizontalAlignment="Left" Margin="6,76,0,0" Name="radioAutoYesRepeat" VerticalAlignment="Top" Checked="radioAutoYesRepeat_Checked" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="6,113,0,0" Name="textBoxRepetitionsRepeat" VerticalAlignment="Top" Width="76" TextChanged="textBoxRepetitionsRepeat_TextChanged" />
+            </Grid>
+        </GroupBox>
+        <Menu Height="18" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="806" Background="#18000000">
+
+            <MenuItem Header="_File" Padding="3,0,3,1">
+                <MenuItem Header="_Load prepared hand" Click="MenuItemLoadHand_Click" />
+                <MenuItem Header="_Save results to file" Click="MenuItemSaveResults_Click" />
+                <MenuItem Header="_Save current hands to file" Click="MenuItemSaveHand_Click" />
+                <MenuItem Header="_Exit" Click="MenuItemExit_Click"/>
+            </MenuItem>
+        </Menu>
+        <GroupBox Header="Show all cards" Height="82" HorizontalAlignment="Left" Margin="230,266,0,0" Name="groupBox1" VerticalAlignment="Top" Width="105" BorderBrush="#AE000000">
+            <Grid>
+                <RadioButton GroupName="Show"  Content="Don't show" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioNotShow" VerticalAlignment="Top" Checked="radioNotShow_Checked" />
+                <RadioButton GroupName="Show" Content="Show" Height="16" HorizontalAlignment="Left" Margin="6,28,0,0" Name="radioShow" VerticalAlignment="Top" Checked="radioShow_Checked" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Play game!" FontSize="16"  Height="44" HorizontalAlignment="Left" Margin="460,304,0,0" Name="buttonPlay" VerticalAlignment="Top" Width="91" Click="buttonPlay_Click" />
+        <GroupBox BorderBrush="#AE000000" Header="Player 2 AI" Height="100" HorizontalAlignment="Left" Margin="339,165,0,0" Name="groupPlayer2" VerticalAlignment="Top" Width="103">
+            <Grid>
+                <RadioButton Content="Random" GroupName="Player2AI" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioPlayer2Random" VerticalAlignment="Top" Checked="radioPlayer2Random_Checked" />
+                <RadioButton Content="Greedy" GroupName="Player2AI" Height="16" HorizontalAlignment="Left" Margin="6,25,0,0" Name="radioPlayer2Greedy" VerticalAlignment="Top" Checked="radioPlayer2Greedy_Checked" />
+                <RadioButton Content="Heuristic" GroupName="Player2AI" Height="16" HorizontalAlignment="Left" Margin="6,44,0,0" Name="radioPlayer2Heuristic" VerticalAlignment="Top" Checked="radioPlayer2Heuristic_Checked" />
+            </Grid>
+        </GroupBox>
+        <GroupBox BorderBrush="#AE000000" Header="Player 3 AI" Height="100" HorizontalAlignment="Left" Margin="448,165,0,0" Name="groupPlayer3" VerticalAlignment="Top" Width="103">
+            <Grid>
+                <RadioButton Content="Random" GroupName="Player3AI" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="radioPlayer3Random" VerticalAlignment="Top" Checked="radioPlayer3Random_Checked" />
+                <RadioButton Content="Greedy" GroupName="Player3AI" Height="16" HorizontalAlignment="Left" Margin="6,25,0,0" Name="radioPlayer3Greedy" VerticalAlignment="Top" Checked="radioPlayer3Greedy_Checked" />
+                <RadioButton Content="Heuristic" GroupName="Player3AI" Height="16" HorizontalAlignment="Left" Margin="6,44,0,0" Name="radioPlayer3Heuristic" VerticalAlignment="Top" Checked="radioPlayer3Heuristic_Checked" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Not used group" Height="82" HorizontalAlignment="Left" Margin="339,266,0,0" Name="group2ClubsWhist" VerticalAlignment="Top" Width="117" BorderBrush="#AE000000">
+            <Grid></Grid>
+        </GroupBox>
+    </Grid>
+</Window>

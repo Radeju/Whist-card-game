@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<game>Hearts
+  <player>1
+    <card>5♦</card>
+    <card>5♥</card>
+    <card>J♥</card>
+  </player>
+  <player>2
+    <card>7♠</card>
+    <card>8♥</card>
+    <card>9♥</card>
+  </player>
+  <player>3
+    <card>9♠</card>
+    <card>J♠</card>
+    <card>A♠</card>
+  </player>
+  <player>4
+    <card>Q♠</card>
+    <card>Q♥</card>
+    <card>7♥</card>
+  </player>
+  <wistnumber>1</wistnumber>
+</game>

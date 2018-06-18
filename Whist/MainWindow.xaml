@@ -1,0 +1,139 @@
+﻿<Window x:Class="Whist.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Whist.Core.Controls;assembly=Elusive.Whistle.Core"
+        Title="Whist"
+        Width="1230"
+        Height="1010"
+        Top="10"
+        Left="500"
+        WindowStartupLocation="Manual"
+        ResizeMode="CanResizeWithGrip"
+        Icon="Media/cards.ico">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Canvas x:Name="LayoutRoot"
+            Background="#FFFFFFFF"
+            Loaded="LayoutRoot_Loaded"
+            Width="1190"
+            Height="968">
+
+                <!--  Game Board  -->
+                <Controls:GameShape x:Name="GameShape"
+                            Canvas.Left="-14"
+                            Canvas.Top="-12" Height="1002" Width="1228" />
+
+                <!--  Dealer Deck  -->
+                <TextBlock Canvas.Right="20"
+                   Canvas.Bottom="225"
+                   Width="134"
+                   Height="20"
+                   Style="{StaticResource DefaultLabelText}"
+                   Text="Dealer" />
+                <Controls:DeckShape x:Name="Dealer"
+                            Canvas.Right="10"
+                            Canvas.Top="745"
+                            CardSpacerX="1"
+                            CardSpacerY="0"
+                            MaxCardsSpace="10" />
+
+                <!--  Trick Decks  -->
+                <Controls:DeckShape x:Name="Player1Trick"
+                            Canvas.Left="371"
+                            Canvas.Top="384" />
+                <Controls:DeckShape x:Name="Player2Trick"
+                            Canvas.Left="521"
+                            Canvas.Top="277" />
+                <Controls:DeckShape x:Name="Player3Trick"
+                            Canvas.Left="671"
+                            Canvas.Top="384" />
+                <Controls:DeckShape x:Name="Player4Trick"
+                            Canvas.Left="521"
+                            Canvas.Top="477" />
+
+                <!--  Player Hand Decks  -->
+                <TextBlock Canvas.Left="25"
+                   Canvas.Top="245"
+                   Width="134"
+                   Height="20"
+                   Style="{StaticResource DefaultLabelText}"
+                   Text="Player 1 (W)" />
+                <Controls:DeckShape x:Name="Player1Hand"
+                            Canvas.Left="25"
+                            Canvas.Top="273"
+                            CardSpacerX="0"
+                            CardSpacerY="20"
+                            MaxCardsSpace="10" Height="194" Width="144" />
+                <TextBlock Canvas.Left="398"
+                   Canvas.Top="225"
+                   Width="134"
+                   Height="20"
+                   Style="{StaticResource DefaultLabelText}"
+                   Text="Player 2 (N)" />
+                <Controls:DeckShape x:Name="Player2Hand"
+                            Canvas.Left="398"
+                            Canvas.Top="25"
+                            CardSpacerX="20"
+                            CardSpacerY="0"
+                            MaxCardsSpace="10" />
+                <TextBlock Canvas.Top="245"
+                   Canvas.Right="35"
+                   Width="134"
+                   Height="20"
+                   Style="{StaticResource DefaultLabelText}"
+                   Text="Player 3 (E)" />
+                <Controls:DeckShape x:Name="Player3Hand"
+                            Canvas.Top="273"
+                            Canvas.Left="1009"
+                            CardSpacerX="0"
+                            CardSpacerY="20"
+                            MaxCardsSpace="10" />
+                <TextBlock Canvas.Left="279"
+                   Canvas.Bottom="225"
+                   Width="134"
+                   Height="20"
+                   Style="{StaticResource DefaultLabelText}"
+                   Text="Player 4 (S)" />
+                <Controls:DeckShape x:Name="Player4Hand"
+                            Canvas.Left="279"
+                            Canvas.Top="745"
+                            CardSpacerX="50"
+                            CardSpacerY="0"
+                            MaxCardsSpace="10" />
+
+                <Controls:DeckShape x:Name="PlayedCards" 
+                            Canvas.Left="1009" 
+                            Canvas.Top="25" 
+                            CardSpacerX="1"
+                            CardSpacerY="0"
+                            MaxCardsSpace="10"/>
+
+                <!--  Deal Button  -->
+                <Button x:Name="MainWindow_DealButton"
+                Canvas.Left="25"
+                Canvas.Top="6"
+                Width="121"
+                Height="45"
+                Click="MainWindow_DealButton_Click"
+                Content="Play game!" 
+                FontSize="22"/>
+                <TextBlock Canvas.Left="1009" Canvas.Top="0" Height="20" Style="{StaticResource DefaultLabelText}" Text="Played cards" Width="134" />
+                <TextBlock Canvas.Left="25" Canvas.Top="75" Height="20" Style="{StaticResource DefaultLabelText}" Text="Whist player number:" Width="156" />
+                <TextBlock Canvas.Left="41" Canvas.Top="108" Height="20" Style="{StaticResource DefaultLabelText}" Text="Tricks taken by NS:" Width="140" />
+                <TextBlock Canvas.Left="37" Canvas.Top="145" Height="20" Style="{StaticResource DefaultLabelText}" Text="Tricks taken by WE:" Width="144" />
+                <TextBlock Canvas.Left="29" Canvas.Top="195" Height="27" Style="{StaticResource DefaultLabelText}" FontSize="20" Text="Trump card:" Width="117" />
+                <TextBlock Canvas.Left="188" Canvas.Top="102" FontSize="20" Height="35" Name="tricksNS" Style="{StaticResource DefaultLabelText}" Text="{Binding}" Width="52" />
+                <TextBlock Canvas.Left="188" Canvas.Top="138" FontSize="20" Height="35" Name="tricksWE" Style="{StaticResource DefaultLabelText}" Text="{Binding}" Width="52" />
+                <TextBlock Canvas.Left="150" Canvas.Top="195" FontSize="20" Height="30" Name="trumpCardBlock" Style="{StaticResource DefaultLabelText}" Text="{Binding}" Width="90" />
+                <TextBlock Canvas.Left="188" Canvas.Top="65" 
+                   Width="52"
+                   Height="30"
+                   Style="{StaticResource DefaultLabelText}" 
+                   Name="textWist" 
+                   FontSize="20"
+                   Text="{Binding}" />                
+                
+            </Canvas>
+        </ScrollViewer>
+    </Grid>
+</Window>
